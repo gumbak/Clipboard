@@ -1,5 +1,9 @@
 class PasteCommand {
-	execute(clipboardData) {
-		document.execCommand("Paste");
+	execute(text) {
+		chrome.tabs.executeScript({
+			code: "document.execCommand('insertHTML', false, " + text + ");"
+		}, function(isExecuted) {
+			
+		});		
 	}
 }

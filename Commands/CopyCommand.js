@@ -9,8 +9,7 @@ class CopyCommand {
 			}
 			
 			clipboardData.push(stringToCopy);
-			document.selection.createRange().execCommand("Copy");
-			debugger;
-		});		
+			document.execCommand('copy');
+		});				
 	}
 }

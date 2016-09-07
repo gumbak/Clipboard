@@ -9,7 +9,12 @@
     "default_popup": "clipboard.html"
   },
 
-  "permissions": [ "tabs", "activeTab", "clipboardRead", "clipboardWrite" ],
+  "permissions": [ 
+    "tabs", 
+    "activeTab", 
+    "clipboardRead", 
+    "clipboardWrite"
+  ],
 
   "commands": {
     "copy": {
@@ -21,8 +26,8 @@
     },
     "paste": {
       "suggested_key": {
-        "default": "Ctrl+Shift+V",
-        "mac": "Ctrl+Shift+V"
+        "default": "Ctrl+Shift+Space",
+        "mac": "Ctrl+Shift+Space"
       },
       "description": "Paste selected field in clipboard"
     },
