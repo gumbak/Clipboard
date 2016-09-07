@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+
+  "name": "Clipboard",
+  "description": "Copy and paste multiple times using the Clipboard",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_popup": "clipboard.html"
+  },
+
+  "permissions": [ "tabs", "activeTab", "clipboardRead", "clipboardWrite" ],
+
+  "commands": {
+    "copy": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+X",
+        "mac": "Ctrl+Shift+X"
+      },
+      "description": "Copy highlited fields into the clipboard"
+    },
+    "paste": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+V",
+        "mac": "Ctrl+Shift+V"
+      },
+      "description": "Paste selected field in clipboard"
+    },
+    "reset": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Z",
+        "mac": "Ctrl+Shift+Z"
+      },
+      "description": "Clear clipboard data"
+    }
+  }
+}
