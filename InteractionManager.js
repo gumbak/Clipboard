@@ -1,4 +1,5 @@
-var clipboardData = [];
+var clipboard = [];
+
 var copyCommand = new CopyCommand();
 var pasteCommand = new PasteCommand();
 var resetCommand = new ResetCommand();
@@ -6,13 +7,14 @@ var resetCommand = new ResetCommand();
 chrome.commands.onCommand.addListener(function(input) {
     switch(input) {
     	case COMMAND_TYPES.COPY:
-    		copyCommand.execute(clipboardData);
+    		copyCommand.execute(clipboard);
     		break;
     	case COMMAND_TYPES.PASTE:
-    		pasteCommand.execute(clipboardData);
+            var text = clipboard[clipboard.length - 1];
+    		pasteCommand.execute(text);
     		break;
     	case COMMAND_TYPES.RESET:
-    		resetCommand.execute(clipboardData);
+    		resetCommand.execute(clipboard);
     		break;
     	default:
     		break;

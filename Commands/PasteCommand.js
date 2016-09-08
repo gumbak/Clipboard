@@ -1,9 +1,12 @@
 class PasteCommand {
 	execute(text) {
+		if (!text) {
+			return;
+		}
+
+		var insertTextScript = "document.execCommand('insertHTML', false, '" + text + "');";
 		chrome.tabs.executeScript({
-			code: "document.execCommand('insertHTML', false, " + text + ");"
-		}, function(isExecuted) {
-			
+			code: insertTextScript
 		});		
 	}
 }
