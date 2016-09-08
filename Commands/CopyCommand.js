@@ -1,4 +1,4 @@
-MAX_CLIPBOARD_LENGTH = 10;
+var MAX_CLIPBOARD_LENGTH = 10;
 
 class CopyCommand {
 	execute(clipboard) {
