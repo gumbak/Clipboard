@@ -41,14 +41,14 @@
       },
       "description": "Paste selected field in clipboard"
     },
-    "remove": {
+    "go_to_next_text": {
       "suggested_key": {
-        "default": "Ctrl+Z",
-        "mac": "Ctrl+Z"
+        "default": "Ctrl+Shift+Right",
+        "mac": "Ctrl+Shift+Right"
       },
-      "description": "Clear clipboard data"
+      "description": "Go to the next copied text"
     },
-    "reset": {
+    "remove": {
       "suggested_key": {
         "default": "Ctrl+Shift+Z",
         "mac": "Ctrl+Shift+Z"
