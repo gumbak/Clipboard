@@ -19,10 +19,11 @@
 
   "background": {
     "scripts": [
-      "CommandTypes.js",
+      "Config.js",
       "Commands/CopyCommand.js",
       "Commands/PasteCommand.js",
-      "InteractionManager.js" 
+      "ViewManager.js",
+      "InteractionManager.js"
     ]
   },
 

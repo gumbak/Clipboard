@@ -1,6 +1,8 @@
-var MAX_CLIPBOARD_LENGTH = 10;
-
 class CopyCommand {
+	constructor(maxClipboardLength) {
+		this._maxClipboardLength = maxClipboardLength;
+	}
+
 	execute(clipboard) {
 		if (!clipboard) {
 			return;
@@ -11,10 +13,10 @@ class CopyCommand {
 			code: getSelectionScript
 		}, function(selection) {
 			var stringToCopy = selection && selection[0];
-			if (!stringToCopy || clipboard.length >= MAX_CLIPBOARD_LENGTH) {
+			if (!stringToCopy || clipboard.length >= this._maxClipboardLength) {
 				return;
 			}			
 			clipboard.push(stringToCopy);
-		});				
+		}.bind(this));				
 	}
 }
