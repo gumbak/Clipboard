@@ -1,8 +1,19 @@
 var clipboard = [];
 var currIndex = 0;
-var copyCommand = new CopyCommand(CONFIG.MAX_CLIPBOARD_LENGTH);
+var popupPort = [];
+var copyCommand = new CopyCommand();
 var pasteCommand = new PasteCommand();
-var viewManager = new ViewManager(CONFIG.CLIPBOARD_TEXT_TABLE_ID);
+var viewManager = new ViewManager();
+
+var _sendClipboardToPopup = function() {
+    if (!popupPort) {
+        return;
+    }
+
+    popupPort.forEach(function(port) {
+        port.postMessage({ clipboard: JSON.stringify(clipboard) });
+    });
+};
 
 chrome.commands.onCommand.addListener(function(input) {
     switch(input) {
@@ -25,5 +36,11 @@ chrome.commands.onCommand.addListener(function(input) {
     	default:
     		break;
     }
-    viewManager.updateDisplay(clipboard, currIndex);
+    // viewManager.updateDisplay(clipboard, currIndex);
+    _sendClipboardToPopup();
+});
+
+chrome.extension.onConnect.addListener(function(port) {
+    popupPort.push(port);
+    _sendClipboardToPopup();
 });

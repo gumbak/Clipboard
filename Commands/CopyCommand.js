@@ -1,8 +1,4 @@
 class CopyCommand {
-	constructor(maxClipboardLength) {
-		this._maxClipboardLength = maxClipboardLength;
-	}
-
 	execute(clipboard) {
 		if (!clipboard) {
 			return;
@@ -13,7 +9,7 @@ class CopyCommand {
 			code: getSelectionScript
 		}, function(selection) {
 			var stringToCopy = selection && selection[0];
-			if (!stringToCopy || clipboard.length >= this._maxClipboardLength) {
+			if (!stringToCopy || clipboard.length >= CONFIG.MAX_CLIPBOARD_LENGTH) {
 				return;
 			}			
 			clipboard.push(stringToCopy);
