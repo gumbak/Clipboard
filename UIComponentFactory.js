@@ -1,3 +1,0 @@
-class UIComponentFactory {
-	createTableRow(elementId) { }
-}
