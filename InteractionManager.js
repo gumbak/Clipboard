@@ -3,16 +3,13 @@ var currIndex = 0;
 var popupPort = [];
 var copyCommand = new CopyCommand();
 var pasteCommand = new PasteCommand();
-var viewManager = new ViewManager();
 
 var _sendClipboardToPopup = function() {
     if (!popupPort) {
         return;
     }
 
-    popupPort.forEach(function(port) {
-        port.postMessage({ clipboard: JSON.stringify(clipboard) });
-    });
+    popupPort.postMessage({ clipboard: JSON.stringify(clipboard) });   
 };
 
 chrome.commands.onCommand.addListener(function(input) {
@@ -41,6 +38,13 @@ chrome.commands.onCommand.addListener(function(input) {
 });
 
 chrome.extension.onConnect.addListener(function(port) {
-    popupPort.push(port);
+    if (port.name != CONFIG.POPUP_PORT_NAME) {
+        return;
+    }
+
+    popupPort = port;
+    popupPort.onDisconnect.addListener(function() {
+        popupPort = null;
+    });
     _sendClipboardToPopup();
 });
