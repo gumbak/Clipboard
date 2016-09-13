@@ -5,14 +5,17 @@ class CopyCommand {
 		}
 
 		var getSelectionScript = "window.getSelection().toString();";
-		chrome.tabs.executeScript({
-			code: getSelectionScript
-		}, function(selection) {
-			var stringToCopy = selection && selection[0];
-			if (!stringToCopy || clipboard.length >= CONFIG.MAX_CLIPBOARD_LENGTH) {
-				return;
-			}			
-			clipboard.push(stringToCopy);
-		}.bind(this));				
+		return new Promise(function(resolve, reject) {
+			chrome.tabs.executeScript({
+				code: getSelectionScript
+			}, function(selection) {
+				var stringToCopy = selection && selection[0];
+				if (!stringToCopy || clipboard.length >= CONFIG.MAX_CLIPBOARD_LENGTH) {
+					return;
+				}			
+				clipboard.push(stringToCopy);
+				resolve();
+			});
+		});
 	}
 }

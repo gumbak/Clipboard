@@ -22,7 +22,6 @@
       "Config.js",
       "Commands/CopyCommand.js",
       "Commands/PasteCommand.js",
-      "ViewManager.js",
       "InteractionManager.js"
     ]
   },
