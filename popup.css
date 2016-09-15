@@ -2,10 +2,35 @@ body * {
 	font-family: "futura";
 	font-size: 24px;
 	text-align: center;
+	overflow: auto;
 }
 
-table {
+#content {
+	max-height: 210px;
+	overflow-y: auto;
+
+	width: 400px;
+	overflow-x: hidden;
+}
+
+
+
+.clipboard-text-current-selection {
+	color: darkred;
+}
+
+#clipboard-table {
+	width: 100%;
+	font-size: 18px;
+}
+
+#clipboard-table * {
+	font-size: 18px;
+}
+
+table  {
 	border-collapse: collapse;
+	margin-bottom: 24px;
 }
 
 td, th {
