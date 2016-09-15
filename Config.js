@@ -6,6 +6,8 @@ var CONFIG = Object.freeze({
 		"REMOVE": "remove"
 	},
 	"MAX_CLIPBOARD_LENGTH": 10,
+	"MAX_UI_TEXT_LENGTH": 40,
+	"UI_TEXT_ELLIPSE": "...",
 	"CLIPBOARD_TEXT_TABLE_ID": "clipboard-table",
 	"ROW_CLIPBOARD_TEXT_TABLE_ID": "clipboard-table-row-",
 	"POPUP_PORT_NAME": "popup-port",
