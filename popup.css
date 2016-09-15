@@ -13,8 +13,6 @@ body * {
 	overflow-x: hidden;
 }
 
-
-
 .clipboard-text-current-selection {
 	color: darkred;
 }

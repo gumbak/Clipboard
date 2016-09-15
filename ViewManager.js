@@ -5,6 +5,7 @@ class ViewManager {
 			if (index < clipboard.length) {
 				var row = this._insertTableRow(clipboardTable, index);
 				row.textContent = clipboard[index];
+				row.className = index === currIndex ? CONFIG.CSS_CLASSNAME_CURRENT_SELECTION : "";
 			} else {
 				this._deleteTableRow(clipboardTable, index);
 			}
